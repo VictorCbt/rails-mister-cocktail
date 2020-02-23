@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
-  has_many :reviews
+  has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
-  has_many :doses, dependant: :destroy
-  validates :names, presence: true, uniqueness: true
+  has_many :reviews
+  validates :name, presence: true, uniqueness: true
 end
